@@ -1,25 +1,23 @@
-import logo from './logo.svg';
+import { useState } from "react";
 import './App.css';
+import Cardlist from './components/Cardlist';
+import Form from "./components/Form";
 
 function App() {
+  const [Profiles,setProfiles]=useState([]);
+  function addprofile(profiledata) {
+    setProfiles([...Profiles, profiledata]);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1> Git Hub App</h1>
+      <Form onSubmit={addprofile}/>
+      <Cardlist profiles={Profiles}/>
     </div>
   );
 }
 
 export default App;
+
+
+
